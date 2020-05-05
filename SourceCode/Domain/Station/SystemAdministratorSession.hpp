@@ -17,6 +17,8 @@ namespace Domain::Station
 
       // Operations
       std::vector<std::string> getCommands() override;  // retrieves the list of actions (commands)
+      std::vector<std::string> getTrainStatistics();
+      std::vector<std::string> filterStatistics();
 
 
       // Destructor
@@ -39,5 +41,16 @@ namespace Domain::Station
   {
     return { "Get Train Statistics", "View Train Schedules", "Get Current Employees" };
   }
+
+    inline std::vector<std::string> SystemAdministratorSession::getTrainStatistics()
+  {
+    return { "Filter Statistics", "Train 1 from Los Angeles to Moorpark at 13:30", "Train 2 from Camarillo to Griffith Park at 15:00", "Train 3 from Union Station to Orange Metro Station at 07:00" };
+  }
+
+      inline std::vector<std::string> SystemAdministratorSession::filterStatistics()
+  {
+    return { "Train 5 from Fullerton to Los Angeles at 14:30"  }
+  }
+
 
 } // namespace Domain::Station
