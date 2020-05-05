@@ -4,12 +4,13 @@
 #include <string>
 #include <vector>
 
+
 #include "Domain/Station/Session.hpp"
 
 
 namespace Domain::Station
 {
-  class CustomerSession : public Domain::Station::SessionHandler
+  class SystemAdministratorSession : public Domain::Station::SessionHandler
   {
     public:
       using SessionHandler::SessionHandler;  // inherit constructors
@@ -20,8 +21,8 @@ namespace Domain::Station
 
       // Destructor
       // Pure virtual destructor helps force the class to be abstract, but must still be implemented
-     ~CustomerSession() noexcept override;
-  }; // class CustomerSession
+     ~SystemAdministratorSession() noexcept override;
+  }; // class SystemAdministratorSession
 
 
 
@@ -30,13 +31,13 @@ namespace Domain::Station
   /*****************************************************************************
   ** Inline implementations
   ******************************************************************************/
-  inline CustomerSession::~CustomerSession() noexcept
+  inline SystemAdministratorSession::~SystemAdministratorSession() noexcept
   {}
 
 
-  inline std::vector<std::string> CustomerSession::getCommands()
+  inline std::vector<std::string> SystemAdministratorSession::getCommands()
   {
-    return { "View Train Schedule", "Make Purchase", "Redeem Pass", "Help" };
+    return { "Get Train Statistics", "View Train Schedules", "Get Current Employees" };
   }
 
 } // namespace Domain::Station

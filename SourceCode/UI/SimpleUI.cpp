@@ -6,8 +6,8 @@
 #include <vector>
 
 #include "Domain/AccountManagement/UserAccounts.hpp"                                  // Include for now - will replace next increment
-#include "Domain/Library/Books.hpp"                                                   // Include for now - will replace next increment
-#include "Domain/Library/Session.hpp"
+#include "Domain/Station/Trains.hpp"                                                   // Include for now - will replace next increment
+#include "Domain/Station/Session.hpp"
 
 #include "TechnicalServices/Logging/LoggerHandler.hpp"
 #include "TechnicalServices/Logging/SimpleLogger.hpp"                                 // Include for now - will replace next increment
@@ -20,7 +20,7 @@ namespace UI
   // Default constructor
   SimpleUI::SimpleUI()
   : _accounts      ( std::make_unique<Domain::AccountManagement::UserAccounts>()  ),   // will replace these factory calls with abstract factory calls in the next increment
-    _bookHandler   ( std::make_unique<Domain::Library::Books>()                   ),   // will replace these factory calls with abstract factory calls in the next increment
+    _trainHandler   ( std::make_unique<Domain::Station::Trains>()                   ),   // will replace these factory calls with abstract factory calls in the next increment
     _loggerPtr     ( std::make_unique<TechnicalServices::Logging::SimpleLogger>() ),   // will replace these factory calls with abstract factory calls in the next increment
     _persistentData( TechnicalServices::Persistence::SingletonDB::instance()      )    // will replace these factory calls with abstract factory calls in the next increment
   {
@@ -83,7 +83,7 @@ namespace UI
 
 
     // 4) Fetch functionality options for this role
-    std::unique_ptr<Domain::Library::SessionHandler> sessionControl = Domain::Library::SessionHandler::createSession( selectedRole );
+    std::unique_ptr<Domain::Station::SessionHandler> sessionControl = Domain::Station::SessionHandler::createSession( selectedRole );
 
     std::vector<std::string> commands = sessionControl->getCommands();
     unsigned menuSelection;

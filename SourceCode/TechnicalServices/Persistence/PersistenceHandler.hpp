@@ -4,9 +4,6 @@
 #include <string>
 #include <vector>
 
-
-
-
 namespace TechnicalServices::Persistence
 {
   // Function argument type definitions

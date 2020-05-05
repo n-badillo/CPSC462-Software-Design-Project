@@ -1,15 +1,17 @@
-#pragma once
+#ifndef Domain_Employee_EmployeeSession_hpp
+#define Domain_Employee_EmployeeSession_hpp
 
 #include <memory>
 #include <string>
 #include <vector>
+
 
 #include "Domain/Station/Session.hpp"
 
 
 namespace Domain::Station
 {
-  class CustomerSession : public Domain::Station::SessionHandler
+  class EmployeeSession : public Domain::Station::SessionHandler
   {
     public:
       using SessionHandler::SessionHandler;  // inherit constructors
@@ -20,8 +22,8 @@ namespace Domain::Station
 
       // Destructor
       // Pure virtual destructor helps force the class to be abstract, but must still be implemented
-     ~CustomerSession() noexcept override;
-  }; // class CustomerSession
+     ~EmployeeSession() noexcept override;
+  }; // class EmployeeSession
 
 
 
@@ -30,13 +32,15 @@ namespace Domain::Station
   /*****************************************************************************
   ** Inline implementations
   ******************************************************************************/
-  inline CustomerSession::~CustomerSession() noexcept
+  inline EmployeeSession::~EmployeeSession() noexcept
   {}
 
 
-  inline std::vector<std::string> CustomerSession::getCommands()
+  inline std::vector<std::string> EmployeeSession::getCommands()
   {
-    return { "View Train Schedule", "Make Purchase", "Redeem Pass", "Help" };
+    return { "Open Account", "Checkout Purchase", "Collect Fines", "Help" };
   }
 
 } // namespace Domain::Station
+
+#endif // Domain_Employee_EmployeeSession_hpp

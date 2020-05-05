@@ -9,7 +9,7 @@
 
 namespace Domain::Station
 {
-  class CustomerSession : public Domain::Station::SessionHandler
+  class ManagementSession : public Domain::Station::SessionHandler
   {
     public:
       using SessionHandler::SessionHandler;  // inherit constructors
@@ -20,8 +20,8 @@ namespace Domain::Station
 
       // Destructor
       // Pure virtual destructor helps force the class to be abstract, but must still be implemented
-     ~CustomerSession() noexcept override;
-  }; // class CustomerSession
+     ~ManagementSession() noexcept override;
+  }; // class ManagementSession
 
 
 
@@ -30,13 +30,13 @@ namespace Domain::Station
   /*****************************************************************************
   ** Inline implementations
   ******************************************************************************/
-  inline CustomerSession::~CustomerSession() noexcept
+  inline ManagementSession::~ManagementSession() noexcept
   {}
 
 
-  inline std::vector<std::string> CustomerSession::getCommands()
+  inline std::vector<std::string> ManagementSession::getCommands()
   {
-    return { "View Train Schedule", "Make Purchase", "Redeem Pass", "Help" };
+    return { "Bug People", "Help" };
   }
 
 } // namespace Domain::Station
